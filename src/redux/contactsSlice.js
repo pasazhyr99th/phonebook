@@ -10,13 +10,15 @@ const handleRejected = (state, action) => {
   state.error = action.payload;
 };
 
-export const contactsSlice = createSlice({
+const initialState = {
+  items: [],
+  isLoading: false,
+  error: null,
+};
+
+const contactsSlice = createSlice({
   name: 'contacts',
-  initialState: {
-    items: [],
-    isLoading: false,
-    error: null,
-  },
+  initialState,
   reducers: {},
   extraReducers: {
     [fetchContacts.pending]: handlePending,
